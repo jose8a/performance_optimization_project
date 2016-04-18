@@ -11,7 +11,54 @@ module.exports = function(grunt) {
     //},
     //
     // PROJECT FOLDER STRUCTURE:
-    // source: src (all source files)
+    // ORIGINAL structure: source: src (all source files)
+    //    - /
+    //      - css/
+    //        -- print.css
+    //        -- style.css
+    //      - js/
+    //        -- perfmatters.js
+    //      - img/
+    //        -- 2048.png
+    //        -- cam_be_like.jpg
+    //        -- mobilewebdev.jpg
+    //        -- profilepic.jpg
+    //      - views/
+    //        -- css/
+    //          --- bootstrap-grid.css
+    //          --- style.css
+    //        -- js/
+    //          --- main.js
+    //        -- images/
+    //          --- pizza.png
+    //          --- pizzeria.jpg
+    //        -- pizza.html
+    //      - index.html
+    //      - project-2048.html
+    //      - project-mobile.html
+    //      - project-webperf.html
+    // RESTRUCTURED PROJECT: new source-structure:
+    //    - /
+    //      - css/
+    //        -- print.css
+    //        -- top.css (formerly: ./css/style.css)
+    //        -- bootstrap-grid.css
+    //        -- pizza.css (formerly: ./views/css/style.css)
+    //      - js/
+    //        -- perfmatters.js
+    //        -- main.js
+    //      - img/
+    //        -- 2048.png
+    //        -- cam_be_like.jpg
+    //        -- mobilewebdev.jpg
+    //        -- profilepic.jpg
+    //        -- pizza.png
+    //        -- pizzeria.jpg
+    //      - index.html
+    //      - project-2048.html
+    //      - project-mobile.html
+    //      - project-webperf.html
+    //      - pizza.html
     // build: build (an intermediate folder)
     // dest: final production assets
     //
@@ -94,6 +141,21 @@ module.exports = function(grunt) {
         }]
       }
     },
+    linkChecker: {
+      // Use a large amount of concurrency to speed up check
+      options: {
+        maxConcurrency: 20
+      },
+      dev: {
+        site: 'localhost',
+        options: {
+          initialPort: 8080
+        }
+      },
+      postDeploy: {
+        site: 'http://jose8a.github.io/performance_optimization_project/'
+      }
+    },
     clean: {
       build: ["path/to/dir/one", "path/to/dir/two"],
       release: ["path/to/another/dir/one", "path/to/another/dir/two"]
@@ -143,6 +205,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-link-checker');
 
   grunt.registerTask('default', ['concat', 'uglify', 'imagemin']);
 
