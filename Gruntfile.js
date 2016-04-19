@@ -10,59 +10,6 @@ module.exports = function(grunt) {
     //  }
     //},
     //
-    // PROJECT FOLDER STRUCTURE:
-    // ORIGINAL structure: source: src (all source files)
-    //    - /
-    //      - css/
-    //        -- print.css
-    //        -- style.css
-    //      - js/
-    //        -- perfmatters.js
-    //      - img/
-    //        -- 2048.png
-    //        -- cam_be_like.jpg
-    //        -- mobilewebdev.jpg
-    //        -- profilepic.jpg
-    //      - views/
-    //        -- css/
-    //          --- bootstrap-grid.css
-    //          --- style.css
-    //        -- js/
-    //          --- main.js
-    //        -- images/
-    //          --- pizza.png
-    //          --- pizzeria.jpg
-    //        -- pizza.html
-    //      - index.html
-    //      - project-2048.html
-    //      - project-mobile.html
-    //      - project-webperf.html
-    // RESTRUCTURED PROJECT: new source-structure:
-    //    - /
-    //      - css/
-    //        -- print.css
-    //        -- top.css (formerly: ./css/style.css)
-    //        -- bootstrap-grid.css
-    //        -- pizza.css (formerly: ./views/css/style.css)
-    //      - js/
-    //        -- perfmatters.js
-    //        -- main.js
-    //      - img/
-    //        -- 2048.png
-    //        -- cam_be_like.jpg
-    //        -- mobilewebdev.jpg
-    //        -- profilepic.jpg
-    //        -- pizza.png
-    //        -- pizzeria.jpg
-    //      - index.html
-    //      - project-2048.html
-    //      - project-mobile.html
-    //      - project-webperf.html
-    //      - pizza.html
-    // build: build (an intermediate folder)
-    // dest: final production assets
-    //
-    //
     // UNCSS
     uncss: {
       dist: {
